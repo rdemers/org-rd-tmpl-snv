@@ -42,3 +42,22 @@ adobe color
 vuetify
 npm add vuetify@next sass
 
+# Spring Boot H2 Database CRUD example with security
+
+## Run Spring Boot application
+```
+mvn spring-boot:run
+```
+```
+GET http://localhost:8080/jwt/ping
+```
+```
+POST http://localhost:8080/jwt/token
+```
+
+```
+jeton valide : eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5ZWIwODYzZi01NGMwLTRkY2MtYjQxOS02ZDUzNzFmYjcyZmEiLCJzdWIiOiJqd3Rfcm9vdCIsImxxLnJvbGVzIjoiUk9MRV9TRUxFQ1QsUk9MRV9JTlNFUlQsUk9MRV9VUERBVEUsUk9MRV9ERUxFVEUiLCJpYXQiOjE2MzE2MzI4NDV9.toiK_g2cJDBhxidE3lKtHGMPQ7OnjUAz3VSIJkIGrfE
+```
+```
+http://localhost:8080/swagger-ui/
+```

@@ -6,7 +6,7 @@
     <springProperty name="dir_root"    source="app.dir.root"      defaultValue="."/>
     <springProperty name="dir_env"     source="app.dir.env"       defaultValue="."/>
     <springProperty name="dir_name"    source="app.dir.name"      defaultValue="."/>
-    <springProperty name="log_name"    source="app.log.name"      defaultValue="default_app_log_name"/>
+    <springProperty name="log_name"    source="app.log.name"      defaultValue="default_app_log_target"/>
     <springProperty name="log_pattern" source="app.log.pattern"   defaultValue="%d [%thread] %-5level %logger{35} [%file:%line] - %msg %throwable{1}%n"/>
     <contextName>${ctx_name}</contextName>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
