@@ -1,1 +1,24 @@
 
+#
+# R. Demers 2022.
+#
+server:
+  shutdown: graceful
+  port: 8080
+  error:
+    whitelabel:
+      enabled: false
+    path: /api/error
+#
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+#
+spring:
+  main:
+    cloud-platform: kubernetes
+  lifecycle:
+    timeout-per-shutdown-phase: 45s
+#

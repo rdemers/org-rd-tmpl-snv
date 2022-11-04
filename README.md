@@ -21,7 +21,7 @@ The following guides illustrate how to use some features concretely:
 * [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
 
 ### Guides - Nuxt & Vue (By R. Demers)
-The following guides illustrate how to use Nuxt and Vue concretely:
+The following guides illustrate how to use Vue, Nuxt and Vuetiny concretely:
 * [Create the initial SpringBoot Application - Be sure to add Spring WEB dependency](https://start.spring.io/)
 * npm i nuxi -- Nuxt tooling optionnelle
 
