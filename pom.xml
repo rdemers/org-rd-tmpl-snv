@@ -31,6 +31,7 @@
 
     <properties>
         <java.version>8</java.version>
+
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
@@ -38,11 +39,13 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <jjwt.version>0.9.1</jjwt.version>
+
         <logstash.logback.encoder.version>7.2</logstash.logback.encoder.version>
 
         <spring.boot.version>2.7.5</spring.boot.version>
+        <springdoc.version>1.6.12</springdoc.version>
+
         <io.jsonwebtoken.jjwt.version>0.10.5</io.jsonwebtoken.jjwt.version>
-        <io.springfox.version>3.0.0</io.springfox.version>
     </properties>
 
     <dependencyManagement>
@@ -76,15 +79,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-graphql</artifactId>
         </dependency>
-        <dependency> <!-- Génération de la documentation style swagger/fox. -->
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>${io.springfox.version}</version>
+        <dependency> <!-- Génération de la documentation style swagger/ui. See: https://springdoc.org/ -->
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${io.springfox.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-security</artifactId>
+            <version>${springdoc.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -116,11 +119,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webflux</artifactId>
             <scope>test</scope>
         </dependency>
         <dependency>

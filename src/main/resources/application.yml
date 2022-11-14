@@ -35,15 +35,12 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
         ddl-auto: update
-  mvc:
-    pathmatch:
-      matching-strategy: ANT_PATH_MATCHER
 #
 org:
   rd:
     tmpl:
       snv:
-        secret: the.beautiful.secret.key
+        secret: the.beautiful.secret.key.to.change
         expiration: 30000
         authorities: snv.roles
 #

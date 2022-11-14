@@ -16,12 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/jwt")
-@Api(value = "Contrôleur de l'application pour l'authentification/autorisation")
+@Tag(name = "AuthController", description = "Contrôleur de l'application pour l'authentification/autorisation")
 public class AuthController {
 
     @Autowired
@@ -31,20 +31,20 @@ public class AuthController {
     private JwtUtils jwtUtils;
 
     @GetMapping("/ping")
-    @ApiOperation(value = "Signaler que l'état interne - Simple PING", response = MessageResponse.class)
+    @Operation(summary = "Signaler que l'état interne - Simple PING", description = "MessageResponse.class")
     public ResponseEntity<MessageResponse> ping() {
         return ResponseEntity.ok(new MessageResponse("Ping !!!"));
     }
 
     @GetMapping("/token")
-    @ApiOperation(value = "Décoder un jeton JWT", response = MessageResponse.class)
+    @Operation(summary = "Décoder un jeton JWT", description = "MessageResponse.class")
     public ResponseEntity<MessageResponse> decode(@RequestParam String token) {
         String clearToken = jwtUtils.decodeJwtToken(token);
         return ResponseEntity.ok(new MessageResponse(clearToken));
     }
 
     @PostMapping("/token")
-    @ApiOperation(value = "Authentifier/Autoriser un usager afin d'obtenir un jeton JWT/API", response = MessageResponse.class)
+    @Operation(summary = "Authentifier/Autoriser un usager afin d'obtenir un jeton JWT/API", description = "MessageResponse.class")
     public ResponseEntity<MessageResponse> authenticateUser(@RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(

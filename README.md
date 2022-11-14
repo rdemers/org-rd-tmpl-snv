@@ -59,5 +59,8 @@ POST http://localhost:8080/jwt/token
 jeton valide : eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5ZWIwODYzZi01NGMwLTRkY2MtYjQxOS02ZDUzNzFmYjcyZmEiLCJzdWIiOiJqd3Rfcm9vdCIsImxxLnJvbGVzIjoiUk9MRV9TRUxFQ1QsUk9MRV9JTlNFUlQsUk9MRV9VUERBVEUsUk9MRV9ERUxFVEUiLCJpYXQiOjE2MzE2MzI4NDV9.toiK_g2cJDBhxidE3lKtHGMPQ7OnjUAz3VSIJkIGrfE
 ```
 ```
-http://localhost:8080/swagger-ui/
+http://localhost:8080/swagger-ui.html
+
+
+The Swagger UI page will then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following url for json format: http://server:port/context-path/v3/api-docs
 ```

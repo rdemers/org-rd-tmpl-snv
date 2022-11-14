@@ -9,18 +9,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DatabaseConfig
-{
-    public DatabaseConfig()
-    {
+public class DatabaseConfig {
+    public DatabaseConfig() {
         super();
     }
 
     @Bean
-    public CommandLineRunner loadData(BookRepository bookRepository)
-    {
-        return args -> 
-        {
+    public CommandLineRunner loadData(BookRepository bookRepository) {
+        return args -> {
             Logger logger = LoggerFactory.getLogger(getClass());
             if (bookRepository.count() != 0L)
             {

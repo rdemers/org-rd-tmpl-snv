@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.enums.ParameterStyle;
 
 @RestController
 @RequestMapping("/api")
@@ -32,10 +33,9 @@ public class BookController {
 
     @GetMapping("/books")
     @PreAuthorize("hasRole('ROLE_SELECT')")
-    @ApiOperation(value = "Obtenir la liste des livres", response = Book.class)
-    @ApiImplicitParam(name = "Authorization", value = "jeton JWT", required = true, 
-                      allowEmptyValue = false, paramType = "header", 
-                      dataTypeClass = String.class, example = "Bearer jeton-JWT")
+    @Operation(summary = "Obtenir la liste des livres", description = "Book.class")
+    @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
+               allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<List<Book>> getAllBooks(@RequestParam(required = false) String title) {
         try {
             List<Book> books = new ArrayList<Book>();
@@ -56,10 +56,9 @@ public class BookController {
 
     @GetMapping("/books/{id}")
     @PreAuthorize("hasRole('ROLE_SELECT')")
-    @ApiOperation(value = "Obtenir un livre par son identifiant", response = Book.class)
-    @ApiImplicitParam(name = "Authorization", value = "jeton JWT", required = true, 
-                      allowEmptyValue = false, paramType = "header", 
-                      dataTypeClass = String.class, example = "Bearer jeton-JWT")
+    @Operation(summary = "Obtenir un livre par son identifiant", description = "Book.class")
+    @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
+               allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<Book> getTutorialById(@PathVariable("id") long id) {
         Optional<Book> bookData = bookRepository.findById(id);
 
@@ -71,10 +70,9 @@ public class BookController {
 
     @PostMapping("/books")
     @PreAuthorize("hasRole('ROLE_INSERT')")
-    @ApiOperation(value = "Insérer un livre", response = Book.class)
-    @ApiImplicitParam(name = "Authorization", value = "jeton JWT", required = true, 
-                      allowEmptyValue = false, paramType = "header", 
-                      dataTypeClass = String.class, example = "Bearer jeton-JWT")
+    @Operation(summary = "Insérer un livre", description = "Book.class")
+    @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
+               allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<Book> createTutorial(@RequestBody Book newBook) {
         try {
             Book book = bookRepository.save(new Book(newBook.getTitle(), newBook.getDescription()));
@@ -86,10 +84,9 @@ public class BookController {
 
     @PutMapping("/books/{id}")
     @PreAuthorize("hasRole('ROLE_UPDATE')")
-    @ApiOperation(value = "Mettre à jour un livre", response = Book.class)
-    @ApiImplicitParam(name = "Authorization", value = "jeton JWT", required = true, 
-                      allowEmptyValue = false, paramType = "header", 
-                      dataTypeClass = String.class, example = "Bearer jeton-JWT")
+    @Operation(summary = "Mettre à jour un livre", description = "Book.class")
+    @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
+               allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<Book> updateTutorial(@PathVariable("id") long id, @RequestBody Book newBook) {
         Optional<Book> tutorialData = bookRepository.findById(id);
 
@@ -104,10 +101,9 @@ public class BookController {
 
     @DeleteMapping("/books/{id}")
     @PreAuthorize("hasRole('ROLE_DELETE')")
-    @ApiOperation(value = "Supprimer un livre par son identifiant", response = Book.class)
-    @ApiImplicitParam(name = "Authorization", value = "jeton JWT", required = true, 
-                      allowEmptyValue = false, paramType = "header", 
-                      dataTypeClass = String.class, example = "Bearer jeton-JWT")
+    @Operation(summary = "Supprimer un livre par son identifiant", description = "Book.class")
+    @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
+                      allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
         try {
             bookRepository.deleteById(id);
@@ -119,10 +115,9 @@ public class BookController {
 
     @DeleteMapping("/books")
     @PreAuthorize("hasRole('ROLE_DELETE')")
-    @ApiOperation(value = "Supprimer tous les livres", response = Book.class)
-    @ApiImplicitParam(name = "Authorization", value = "jeton JWT", required = true, 
-                      allowEmptyValue = false, paramType = "header", 
-                      dataTypeClass = String.class, example = "Bearer jeton-JWT")
+    @Operation(summary = "Supprimer tous les livres", description = "Book.class")
+    @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
+               allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<HttpStatus> deleteAllBooks() {
         try {
             bookRepository.deleteAll();

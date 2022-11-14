@@ -10,5 +10,5 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories({"org.rd.tmpl.snv.dao"})
 @ComponentScan({"org.rd.tmpl.snv.controller"})
 public class ApplicationConfig {
-    // Rien.
+    // Nothing for now.
 }
