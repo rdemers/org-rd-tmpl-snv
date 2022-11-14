@@ -62,9 +62,9 @@ public class JwtUtils {
                    .claim(CST_AUTHORITIES, authorities)
                    .setIssuedAt(new Date())
                    //.setExpiration(new Date((new Date()).getTime() + CST_EXPIRATION))
-                   // Un API/KEY n'expire pas. Ajouter une expiration pour faire des tests. Att: mettre à jour expiration.
-                   .signWith(SignatureAlgorithm.HS256, CST_SECRET) // Devrait-être un algorithme à clé asymétrique.
-                   .compact();                                     // Démonstration seulement.
+                   // An API/KEY does not expire. Add an expiration for testing. Att: update expiration.
+                   .signWith(SignatureAlgorithm.HS256, CST_SECRET) // Should be an asymmetric key algorithm.
+                   .compact();                                     // Demonstration only.
     }
 
     public String getUserNameFromJwtToken(String token) {

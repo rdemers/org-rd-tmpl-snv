@@ -20,27 +20,26 @@ public class DatabaseConfig {
             Logger logger = LoggerFactory.getLogger(getClass());
             if (bookRepository.count() != 0L)
             {
-                logger.info("Données existante.");
+                logger.info("Existing data ...");
                 return;
             }
 
-            logger.info("Génération des données");
+            logger.info("Data generation ...");
 
             logger.info("... Books.");
 
             // title, description.
-            bookRepository.save(new Book("Maverick", "Histoire d'un pilote de la Navy."));
-            bookRepository.save(new Book("Thor", "Histoire d'un dieu nordique."));
-            bookRepository.save(new Book("HarleyD", "Histoire d'un gars qui construit des motos."));
-            bookRepository.save(new Book("JohnDoe", "Histoire d'un nobody."));
-            bookRepository.save(new Book("RDemers", "Histoire d'un moine du kung-fu Shaolin."));
-            bookRepository.save(new Book("Ghost-Rider", "Histoire d'un gars qui s'est fait fourré."));
-            bookRepository.save(new Book("Jésus", "Histoire d'un homme qui est devenu Dieu."));
-            bookRepository.save(new Book("Spartan", "Histoire d'un gars laconique."));
-            bookRepository.save(new Book("Enterprise", "Histoire des aventures spaciales."));
-            bookRepository.save(new Book("Moon", "Histoire d'un satellite qui voulait être une planète."));
-
-            logger.info("Génération terminée.");
+            bookRepository.save(new Book("Maverick", "Story of a Navy pilot."));
+            bookRepository.save(new Book("Thor", "Story of a Norse god."));
+            bookRepository.save(new Book("HarleyD", "Story of a guy who builds motorcycles."));
+            bookRepository.save(new Book("JohnDoe", "Story of a nobody."));
+            bookRepository.save(new Book("RDemers", "Story of a Shaolin kung fu monk."));
+            bookRepository.save(new Book("Ghost-Rider", "Story of a guy who got screwed."));
+            bookRepository.save(new Book("Jésus", "Story of a man who became God."));
+            bookRepository.save(new Book("Spartan", "Story of a laconic guy."));
+            bookRepository.save(new Book("Enterprise", "History of a spaceship."));
+            bookRepository.save(new Book("Moon", "Story of a satellite that wanted to be a planet."));
+            logger.info("... Generation finished.");
         };
     }
 }

@@ -70,7 +70,7 @@ public class BookController {
 
     @PostMapping("/books")
     @PreAuthorize("hasRole('ROLE_INSERT')")
-    @Operation(summary = "Insérer un livre", description = "Book.class")
+    @Operation(summary = "Insert a book.", description = "Book.class")
     @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
                allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<Book> createTutorial(@RequestBody Book newBook) {
@@ -84,7 +84,7 @@ public class BookController {
 
     @PutMapping("/books/{id}")
     @PreAuthorize("hasRole('ROLE_UPDATE')")
-    @Operation(summary = "Mettre à jour un livre", description = "Book.class")
+    @Operation(summary = "Update a book.", description = "Book.class")
     @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
                allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<Book> updateTutorial(@PathVariable("id") long id, @RequestBody Book newBook) {
@@ -101,7 +101,7 @@ public class BookController {
 
     @DeleteMapping("/books/{id}")
     @PreAuthorize("hasRole('ROLE_DELETE')")
-    @Operation(summary = "Supprimer un livre par son identifiant", description = "Book.class")
+    @Operation(summary = "Delete a book by its identifier.", description = "Book.class")
     @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
                       allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
@@ -115,7 +115,7 @@ public class BookController {
 
     @DeleteMapping("/books")
     @PreAuthorize("hasRole('ROLE_DELETE')")
-    @Operation(summary = "Supprimer tous les livres", description = "Book.class")
+    @Operation(summary = "Delete all books.", description = "Book.class")
     @Parameter(name = "Authorization", description = "jeton JWT", required = true, 
                allowEmptyValue = false, style = ParameterStyle.SIMPLE, example = "Bearer jeton-JWT")
     public ResponseEntity<HttpStatus> deleteAllBooks() {

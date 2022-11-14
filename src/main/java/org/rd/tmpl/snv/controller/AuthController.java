@@ -21,7 +21,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/jwt")
-@Tag(name = "AuthController", description = "Contrôleur de l'application pour l'authentification/autorisation")
+@Tag(name = "AuthController", description = "Application controller for authentication/authorization.")
 public class AuthController {
 
     @Autowired
@@ -31,20 +31,23 @@ public class AuthController {
     private JwtUtils jwtUtils;
 
     @GetMapping("/ping")
-    @Operation(summary = "Signaler que l'état interne - Simple PING", description = "MessageResponse.class")
+    @Operation(summary = "Report internal state - Simple PING.",
+               description = "MessageResponse.class")
     public ResponseEntity<MessageResponse> ping() {
         return ResponseEntity.ok(new MessageResponse("Ping !!!"));
     }
 
     @GetMapping("/token")
-    @Operation(summary = "Décoder un jeton JWT", description = "MessageResponse.class")
+    @Operation(summary = "Decode a JWT token.",
+               description = "MessageResponse.class")
     public ResponseEntity<MessageResponse> decode(@RequestParam String token) {
         String clearToken = jwtUtils.decodeJwtToken(token);
         return ResponseEntity.ok(new MessageResponse(clearToken));
     }
 
     @PostMapping("/token")
-    @Operation(summary = "Authentifier/Autoriser un usager afin d'obtenir un jeton JWT/API", description = "MessageResponse.class")
+    @Operation(summary = "Authenticate/Authorize a user in order to obtain a JWT/API token.", 
+               description = "MessageResponse.class")
     public ResponseEntity<MessageResponse> authenticateUser(@RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
