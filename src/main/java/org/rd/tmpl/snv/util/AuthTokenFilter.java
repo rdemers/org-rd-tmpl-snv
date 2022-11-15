@@ -47,7 +47,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                 SecurityContextHolder.getContext().setAuthentication(authentication);
             }
         } catch (Exception ex) {
-            logger.error("Nous ne reconnaissons pas le jeton. L'exception est: {}", ex);
+            logger.error("We don't recognize the token. The exception is: {}", ex);
         }
 
         // Passe au suivant (respecter la chaîne).

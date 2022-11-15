@@ -25,8 +25,14 @@ The following guides illustrate how to use Vue, Nuxt and Vuetiny concretely:
 * [Create the initial SpringBoot Application - Be sure to add Spring WEB dependency](https://start.spring.io/)
 * npm i nuxi -- Nuxt tooling optionnelle
 
+
+mvn -N wrapper:wrapper
+npm install bootstrap jquery popper.js
+npm install vue-router@4
+
 npx nuxi init frontend
 cd frontend
+npm update
 npm install
 npm run dev -- -o
 npm run build
@@ -56,10 +62,11 @@ POST http://localhost:8080/jwt/token
 ```
 
 ```
-jeton valide : eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI5ZWIwODYzZi01NGMwLTRkY2MtYjQxOS02ZDUzNzFmYjcyZmEiLCJzdWIiOiJqd3Rfcm9vdCIsImxxLnJvbGVzIjoiUk9MRV9TRUxFQ1QsUk9MRV9JTlNFUlQsUk9MRV9VUERBVEUsUk9MRV9ERUxFVEUiLCJpYXQiOjE2MzE2MzI4NDV9.toiK_g2cJDBhxidE3lKtHGMPQ7OnjUAz3VSIJkIGrfE
+jeton valide :
 ```
 ```
 http://localhost:8080/swagger-ui.html
+http://localhost:8080/v3/api-docs
 
 
 The Swagger UI page will then be available at http://server:port/context-path/swagger-ui.html and the OpenAPI description will be available at the following url for json format: http://server:port/context-path/v3/api-docs
